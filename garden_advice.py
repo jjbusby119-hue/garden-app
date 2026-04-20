@@ -1,31 +1,42 @@
-# Get user season and plant type
-season = input("Enter the season:")
-plant_type = input("Enter the plant type:")
+def get_season_advice(season):
 
-# Variable to hold gardening advice
-advice = ""
+    # Set advice for season
+    if season == "summer":
+        return "Water your plants regularly and provide some shade.\n"
+    elif season == "winter":
+        return "Protect your plants from frost with covers.\n"
+    else:
+        return "No advice for this season.\n"
 
-# Determine advice based on the season
-if season == "summer":
-    advice += "Water your plants regularly and provide some shade.\n"
-elif season == "winter":
-    advice += "Protect your plants from frost with covers.\n"
-else:
-    advice += "No advice for this season.\n"
 
-# Determine advice based on the plant type
-if plant_type == "flower":
-    advice += "Use fertiliser to encourage blooms."
-elif plant_type == "vegetable":
-    advice += "Keep an eye out for pests!"
-else:
-    advice += "No advice for this type of plant."
+def get_plant_advice(plant_type):
 
-# Print the generated advice
-print(advice)
+    # Set advice for plant
+    if plant_type == "flower":
+        return "Use fertiliser to encourage blooms."
+    elif plant_type == "vegetable":
+        return "Keep an eye out for pests!"
+    else:
+        return "No advice for this type of plant."
 
-# TODO: Examples of possible features to add:
-# - Add detailed comments explaining each block of code.
-# - Refactor the code into functions for better readability and modularity.
-# - Store advice in a dictionary for multiple plants and seasons.
-# - Recommend plants based on the entered season.
+
+def gen_advice(season, plant_type):
+
+    # Generate advice
+    advice = get_season_advice(season)
+    advice += get_plant_advice(plant_type)
+
+    return advice
+
+
+def main():
+
+    # Get user input
+    season = input("Enter the season:")
+    plant_type = input("Enter the plant type:")
+
+    advice = gen_advice(season, plant_type)
+    print(advice)
+
+if __name__ == "__main__":
+    main()
